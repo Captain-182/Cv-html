@@ -2,46 +2,60 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <title>Muhammad Ahmad Mudassar - CV</title>
     <style>
         @page { size: A4; margin: 15mm; }
-        body { margin: 0; padding: 0; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #1a1a1a; line-height: 1.4; font-size: 10pt; background-color: #ffffff; }
-        .container { display: table; width: 100%; }
-        .left-col { display: table-cell; width: 32%; background-color: #f4f6f8; padding: 20px 15px; vertical-align: top; }
-        .right-col { display: table-cell; width: 68%; padding: 20px 0px 20px 25px; vertical-align: top; }
-        .name-title { text-transform: uppercase; margin-bottom: 25px; }
-        .name-first { font-size: 20pt; font-weight: 700; color: #1a202c; line-height: 1.1; margin: 0; }
-        .name-last { font-size: 20pt; font-weight: 300; color: #4a5568; line-height: 1.1; margin: 0 0 8px 0; }
-        .role-title { font-size: 9pt; font-weight: 600; color: #718096; text-transform: uppercase; letter-spacing: 1px; margin: 0; }
-        .sidebar-heading { font-size: 11pt; font-weight: 700; color: #1a202c; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 25px; margin-bottom: 10px; border-bottom: 1px solid #cbd5e0; padding-bottom: 3px; }
-        .sidebar-text { font-size: 9.5pt; color: #4a5568; margin-bottom: 5px; }
+        body { margin: 0; padding: 0; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #2d3748; line-height: 1.45; font-size: 10pt; background-color: #ffffff; }
+        .container { display: table; width: 100%; height: 100%; table-layout: fixed; }
+        
+        /* Left Column - Enhanced Dark Premium Slate Theme */
+        .left-col { display: table-cell; width: 34%; background-color: #1a202c; padding: 30px 20px; vertical-align: top; color: #e2e8f0; }
+        /* Right Column */
+        .right-col { display: table-cell; width: 66%; padding: 25px 0px 25px 25px; vertical-align: top; }
+        
+        /* Sidebar styling updates */
+        .name-title { text-transform: uppercase; margin-bottom: 35px; border-bottom: 1px solid #4a5568; padding-bottom: 15px; }
+        .name-first { font-size: 20pt; font-weight: 700; color: #ffffff; line-height: 1.1; margin: 0; letter-spacing: 0.5px; }
+        .name-last { font-size: 20pt; font-weight: 300; color: #cbd5e0; line-height: 1.1; margin: 4px 0 8px 0; letter-spacing: 0.5px; }
+        .role-title { font-size: 9pt; font-weight: 600; color: #90cdf4; text-transform: uppercase; letter-spacing: 1px; margin: 0; }
+        
+        .sidebar-heading { font-size: 11pt; font-weight: 700; color: #ffffff; text-transform: uppercase; letter-spacing: 1px; margin-top: 35px; margin-bottom: 12px; border-bottom: 2px solid #4a5568; padding-bottom: 4px; }
+        .sidebar-text { font-size: 9.5pt; color: #cbd5e0; margin-bottom: 8px; line-height: 1.4; }
         .sidebar-list { list-style-type: none; padding-left: 0; margin: 0; }
-        .sidebar-list li { position: relative; padding-left: 12px; margin-bottom: 5px; font-size: 9.5pt; color: #4a5568; }
-        .sidebar-list li::before { content: "•"; position: absolute; left: 0; color: #718096; }
-        .main-heading { font-size: 12pt; font-weight: 700; color: #1a202c; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 0; margin-bottom: 10px; border-bottom: 1px solid #1a202c; padding-bottom: 3px; }
-        .main-heading:not(:first-child) { margin-top: 22px; }
-        .profile-text { font-size: 9.5pt; color: #4a5568; text-align: justify; margin-bottom: 15px; }
-        .entry { margin-bottom: 15px; }
-        .entry-header { display: table; width: 100%; font-weight: 700; font-size: 10pt; color: #2d3748; }
+        .sidebar-list li { position: relative; padding-left: 15px; margin-bottom: 8px; font-size: 9.5pt; color: #cbd5e0; }
+        .sidebar-list li::before { content: "•"; position: absolute; left: 0; color: #90cdf4; font-weight: bold; }
+        
+        /* Main Heading content on right */
+        .main-heading { font-size: 12pt; font-weight: 700; color: #1a202c; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 0; margin-bottom: 12px; border-bottom: 2px solid #1a202c; padding-bottom: 3px; }
+        .main-heading:not(:first-child) { margin-top: 25px; }
+        .profile-text { font-size: 9.5pt; color: #4a5568; text-align: justify; margin-bottom: 15px; line-height: 1.5; }
+        
+        .entry { margin-bottom: 18px; }
+        .entry-header { display: table; width: 100%; font-weight: 700; font-size: 10pt; color: #1a202c; }
         .entry-title { display: table-cell; text-align: left; }
         .entry-date { display: table-cell; text-align: right; color: #718096; font-weight: normal; font-size: 9.5pt; }
-        .entry-subtitle { font-size: 9.5pt; color: #4a5568; font-style: italic; margin-bottom: 4px; }
-        .tech-stack { font-size: 9pt; color: #2b6cb0; font-weight: 600; margin-bottom: 4px; }
+        .entry-subtitle { font-size: 9.5pt; color: #4a5568; font-style: italic; margin-bottom: 5px; font-weight: 600; }
+        .tech-stack { font-size: 9pt; color: #2b6cb0; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.3px; }
+        
         .entry-list { padding-left: 15px; margin: 0; }
-        .entry-list li { margin-bottom: 3px; font-size: 9.5pt; color: #4a5568; text-align: justify; }
+        .entry-list li { margin-bottom: 5px; font-size: 9.5pt; color: #4a5568; text-align: justify; line-height: 1.4; }
     </style>
 </head>
 <body>
     <div class="container">
+        <!-- LEFT SIDEBAR WITH BALANCED SPACING & NEW PALETTE -->
         <div class="left-col">
             <div class="name-title">
                 <div class="name-first">MUHAMMAD AHMAD</div>
                 <div class="name-last">MUDASSAR</div>
                 <div class="role-title">Computer Science Student</div>
             </div>
+            
             <div class="sidebar-heading">CONTACT</div>
-            <div class="sidebar-text"><strong>+971 58 285 3263</strong></div>
-            <div class="sidebar-text">ahmad.rsh55@gmail.com</div>
-            <div class="sidebar-text">Bin Zayed City - Shabiya 12<br>- Abu Dhabi</div>
+            <div class="sidebar-text">📞 <strong>+971 58 285 3263</strong></div>
+            <div class="sidebar-text">✉️ ahmad.rsh55@gmail.com</div>
+            <div class="sidebar-text">📍 Bin Zayed City - Shabiya 12<br>&nbsp;&nbsp;&nbsp;&nbsp;Abu Dhabi, UAE</div>
+            
             <div class="sidebar-heading">SKILLS</div>
             <ul class="sidebar-list">
                 <li>Problem Solving</li>
@@ -52,27 +66,35 @@
                 <li>Critical Thinking</li>
                 <li>Adaptability</li>
             </ul>
+            
             <div class="sidebar-heading">DOCUMENTS</div>
-            <div class="sidebar-text"><strong>IELTS - Band 7</strong><br><span style="color:#718096; font-size:8.5pt;">2024</span></div>
-            <div class="sidebar-text" style="margin-top: 5px;"><strong>Driving licence</strong><br><span style="color:#718096; font-size:8.5pt;">2024</span></div>
+            <ul class="sidebar-list">
+                <li><strong>IELTS - Band 7</strong><br><span style="color:#a0aec0; font-size:8.5pt;">Academic Variant (2024)</span></li>
+                <li><strong>Driving licence</strong><br><span style="color:#a0aec0; font-size:8.5pt;">Valid UAE Light Vehicle (2024)</span></li>
+            </ul>
+            
             <div class="sidebar-heading">LANGUAGES</div>
             <ul class="sidebar-list">
-                <li>English (Fluent)</li>
-                <li>Urdu (Fluent)</li>
-                <li>Arabic (Basic)</li>
+                <li>English (Fluent / Professional)</li>
+                <li>Urdu (Native / Bilingual)</li>
+                <li>Arabic (Foundational Competency)</li>
             </ul>
         </div>
+
+        <!-- RIGHT MAIN CONTENT -->
         <div class="right-col">
             <div class="main-heading">PROFILE</div>
             <div class="profile-text">Highly motivated Computer Science student with a strong technical foundation in modern web technologies, responsive interface architectures, and full-stack development cycles. Adept at transforming complex software requirements into intuitive, cloud-deployed applications. Combines methodical problem-solving capabilities with a history of leveraging diagnostic software tools to optimize system efficiency and data accuracy.</div>
+            
             <div class="main-heading">TECHNICAL SKILLS</div>
-            <div class="entry" style="margin-bottom: 10px;">
+            <div class="entry" style="margin-bottom: 12px;">
                 <ul class="entry-list" style="list-style-type: square;">
                     <li><strong>Languages:</strong> JavaScript (ES6+), HTML5, CSS3, Python, SQL</li>
                     <li><strong>Frameworks & Tools:</strong> React, Node.js, Git, GitHub, Tailwind CSS, Vite, Lovable AI Platform</li>
                     <li><strong>Core Workflows:</strong> Version Control, Agile Development, Responsive Web Design, RESTful APIs, Cloud Deployment (GitHub Pages, Vercel)</li>
                 </ul>
             </div>
+            
             <div class="main-heading">TECHNICAL PROJECTS</div>
             <div class="entry">
                 <div class="entry-header">
@@ -86,6 +108,7 @@
                     <li>Optimized rendering paths and fluid media breakpoints to secure high performance and complete UI responsiveness across cross-platform environments.</li>
                 </ul>
             </div>
+            
             <div class="entry">
                 <div class="entry-header">
                     <div class="entry-title">Modern Portal & Responsive Semantic Showcase</div>
@@ -98,6 +121,7 @@
                     <li>Maintained and updated public deployment configurations on GitHub Pages using isolated branches for production safety.</li>
                 </ul>
             </div>
+            
             <div class="main-heading">WORK EXPERIENCE</div>
             <div class="entry">
                 <div class="entry-header">
@@ -112,6 +136,7 @@
                     <li>Completed a one-month full-time internship, strengthening technical and professional skills.</li>
                 </ul>
             </div>
+            
             <div class="main-heading">EDUCATION</div>
             <div class="entry">
                 <div class="entry-header">
