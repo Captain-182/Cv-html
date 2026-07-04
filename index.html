@@ -6,24 +6,37 @@
     <style>
         @page { size: A4; margin: 12mm; }
         body { margin: 0; padding: 0; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #334155; line-height: 1.5; font-size: 10pt; background-color: #ffffff; }
-        .container { display: table; width: 100%; height: 100vh; table-layout: fixed; }
         
-        /* Left Column - Canva-Style Slate Sidebar */
-        .left-col { display: table-cell; width: 34%; background-color: #1e293b; padding: 35px 22px; vertical-align: top; color: #f1f5f9; }
+        /* Changed to Flexbox layout to fix the height scaling issue */
+        .container { display: flex; width: 100%; min-height: 100vh; }
+        
+        /* Left Column - Evenly distributes items vertically to remove empty space */
+        .left-col { 
+            width: 34%; 
+            background-color: #1e293b; 
+            padding: 35px 22px; 
+            color: #f1f5f9; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: space-between; /* Spreads content from top to bottom */
+            box-sizing: border-box;
+        }
+        
         /* Right Column */
-        .right-col { display: table-cell; width: 66%; padding: 30px 0px 30px 30px; vertical-align: top; }
+        .right-col { width: 66%; padding: 30px 0px 30px 30px; vertical-align: top; box-sizing: border-box; }
         
         /* Header Sidebar Details */
-        .name-title { text-transform: uppercase; margin-bottom: 40px; }
+        .name-title { text-transform: uppercase; margin-bottom: 20px; }
         .name-first { font-size: 21pt; font-weight: 800; color: #ffffff; line-height: 1.1; margin: 0; letter-spacing: 0.5px; }
         .name-last { font-size: 21pt; font-weight: 300; color: #cbd5e1; line-height: 1.1; margin: 4px 0 10px 0; letter-spacing: 0.5px; }
         .role-title { font-size: 9.5pt; font-weight: 600; color: #38bdf8; text-transform: uppercase; letter-spacing: 1.5px; margin: 0; }
         
-        /* Grid Alignment to stretch left side down */
-        .sidebar-heading { font-size: 11pt; font-weight: 700; color: #ffffff; text-transform: uppercase; letter-spacing: 1.5px; margin-top: 45px; margin-bottom: 15px; border-bottom: 2px solid #334155; padding-bottom: 5px; }
-        .sidebar-text { font-size: 9.5pt; color: #cbd5e1; margin-bottom: 12px; line-height: 1.5; }
+        /* Section Blocks inside the sidebar */
+        .sidebar-section { margin-bottom: 20px; }
+        .sidebar-heading { font-size: 11pt; font-weight: 700; color: #ffffff; text-transform: uppercase; letter-spacing: 1.5px; margin-top: 0; margin-bottom: 12px; border-bottom: 2px solid #334155; padding-bottom: 5px; }
+        .sidebar-text { font-size: 9.5pt; color: #cbd5e1; margin-bottom: 10px; line-height: 1.5; }
         .sidebar-list { list-style-type: none; padding-left: 0; margin: 0; }
-        .sidebar-list li { position: relative; padding-left: 18px; margin-bottom: 10px; font-size: 9.5pt; color: #cbd5e1; }
+        .sidebar-list li { position: relative; padding-left: 18px; margin-bottom: 8px; font-size: 9.5pt; color: #cbd5e1; }
         .sidebar-list li::before { content: "▪"; position: absolute; left: 0; color: #38bdf8; font-size: 8pt; top: 1px; }
         
         /* Right side styling layouts */
@@ -32,9 +45,9 @@
         .profile-text { font-size: 9.5pt; color: #475569; text-align: justify; margin-bottom: 18px; line-height: 1.6; }
         
         .entry { margin-bottom: 22px; }
-        .entry-header { display: table; width: 100%; font-weight: 700; font-size: 10.5pt; color: #0f172a; }
-        .entry-title { display: table-cell; text-align: left; }
-        .entry-date { display: table-cell; text-align: right; color: #64748b; font-weight: normal; font-size: 9.5pt; }
+        .entry-header { display: flex; justify-content: space-between; font-weight: 700; font-size: 10.5pt; color: #0f172a; }
+        .entry-title { text-align: left; padding-right: 10px; }
+        .entry-date { color: #64748b; font-weight: normal; font-size: 9.5pt; white-space: nowrap; }
         .entry-subtitle { font-size: 9.5pt; color: #334155; font-style: italic; margin-bottom: 6px; font-weight: 600; }
         .tech-stack { font-size: 9pt; color: #0284c7; font-weight: 600; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px; }
         
@@ -44,42 +57,52 @@
 </head>
 <body>
     <div class="container">
-        <!-- LEFT SIDEBAR -->
+        <!-- LEFT SIDEBAR WITH AUTOMATIC VERTICAL DISTRIBUTION -->
         <div class="left-col">
-            <div class="name-title">
-                <div class="name-first">MUHAMMAD AHMAD</div>
-                <div class="name-last">MUDASSAR</div>
-                <div class="role-title">Computer Science Student</div>
+            <div class="sidebar-top-group">
+                <div class="name-title">
+                    <div class="name-first">MUHAMMAD AHMAD</div>
+                    <div class="name-last">MUDASSAR</div>
+                    <div class="role-title">Computer Science Student</div>
+                </div>
             </div>
             
-            <div class="sidebar-heading">CONTACT</div>
-            <div class="sidebar-text"><span style="color:#38bdf8;">📱</span> <strong>+971 58 285 3263</strong></div>
-            <div class="sidebar-text"><span style="color:#38bdf8;">✉️</span> ahmad.rsh55@gmail.com</div>
-            <div class="sidebar-text"><span style="color:#38bdf8;">📍</span> Bin Zayed City - Shabiya 12<br>&nbsp;&nbsp;&nbsp;&nbsp;Abu Dhabi, UAE</div>
+            <div class="sidebar-section">
+                <div class="sidebar-heading">CONTACT</div>
+                <div class="sidebar-text"><span style="color:#38bdf8;">📱</span> <strong>+971 58 285 3263</strong></div>
+                <div class="sidebar-text"><span style="color:#38bdf8;">✉️</span> ahmad.rsh55@gmail.com</div>
+                <div class="sidebar-text"><span style="color:#38bdf8;">📍</span> Bin Zayed City - Shabiya 12<br>&nbsp;&nbsp;&nbsp;&nbsp;Abu Dhabi, UAE</div>
+            </div>
             
-            <div class="sidebar-heading">SKILLS</div>
-            <ul class="sidebar-list">
-                <li>Problem Solving</li>
-                <li>Teamwork</li>
-                <li>Time Management</li>
-                <li>Attention to Detail</li>
-                <li>Effective Communication</li>
-                <li>Critical Thinking</li>
-                <li>Adaptability</li>
-            </ul>
+            <div class="sidebar-section">
+                <div class="sidebar-heading">SKILLS</div>
+                <ul class="sidebar-list">
+                    <li>Problem Solving</li>
+                    <li>Teamwork</li>
+                    <li>Time Management</li>
+                    <li>Attention to Detail</li>
+                    <li>Effective Communication</li>
+                    <li>Critical Thinking</li>
+                    <li>Adaptability</li>
+                </ul>
+            </div>
             
-            <div class="sidebar-heading">DOCUMENTS</div>
-            <ul class="sidebar-list">
-                <li><strong>IELTS - Band 7</strong><br><span style="color:#94a3b8; font-size:8.5pt;">Academic Variant (2024)</span></li>
-                <li><strong>Driving licence</strong><br><span style="color:#94a3b8; font-size:8.5pt;">Valid UAE Light Vehicle (2024)</span></li>
-            </ul>
+            <div class="sidebar-section">
+                <div class="sidebar-heading">DOCUMENTS</div>
+                <ul class="sidebar-list">
+                    <li><strong>IELTS - Band 7</strong><br><span style="color:#94a3b8; font-size:8.5pt;">Academic Variant (2024)</span></li>
+                    <li><strong>Driving licence</strong><br><span style="color:#94a3b8; font-size:8.5pt;">Valid UAE Light Vehicle (2024)</span></li>
+                </ul>
+            </div>
             
-            <div class="sidebar-heading">LANGUAGES</div>
-            <ul class="sidebar-list">
-                <li>English (Fluent / Professional)</li>
-                <li>Urdu (Native / Bilingual)</li>
-                <li>Arabic (Foundational Competency)</li>
-            </ul>
+            <div class="sidebar-section">
+                <div class="sidebar-heading">LANGUAGES</div>
+                <ul class="sidebar-list">
+                    <li>English (Fluent / Professional)</li>
+                    <li>Urdu (Native / Bilingual)</li>
+                    <li>Arabic (Foundational Competency)</li>
+                </ul>
+            </div>
         </div>
 
         <!-- RIGHT MAIN CONTENT -->
